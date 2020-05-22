@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Demo Python AAD webapp</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+</head>
+<body>
+  <div class="container homepage-container">
+    <a href="javascript:window.history.go(-1)">Back</a> <!-- Displayed on top of a potentially large JSON response, so it will remain visible -->
+    <h1>Graph API Call Result</h1>
+    <pre>{{ result |tojson(indent=4) }}</pre> <!-- Just a generic json viewer -->
+  </div>
+</body>
+</html>

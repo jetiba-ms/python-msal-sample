@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Demo Python AAD webapp</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+</head>
+<body>
+  <div class="container homepage-container">
+    <h1>Microsoft Identity Python Web App</h1>
+    <h2>Welcome dear {{ user.get("name") }}!</h2>
+
+    {% if config.get("ENDPOINT") %}
+    <p><button type="button" class="btn btn-success btn-md" onclick="window.location.href='/myapi'">Call API</button></p>
+    {% endif %}
+
+    {% if config.get("B2C_PROFILE_AUTHORITY") %}
+      <li><a href='{{_build_auth_url(authority=config["B2C_PROFILE_AUTHORITY"])}}'>Edit Profile</a></li>
+    {% endif %}
+
+
+    <p><button type="button" class="btn btn-success btn-md" onclick="window.location.href='/logout'">Logout</button></p>
+
+    <hr>
+    <footer style="text-align: right">Powered by MSAL Python {{ version }}</footer>
+  </div>
+</body>
+</html>
+

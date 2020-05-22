@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo Python AAD webapp</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">   
+</head>
+<body>
+    <div class="container homepage-container">
+        <h1>Microsoft Identity Python Web App</h1>
+
+        <p><button type="button" class="btn btn-success btn-md" onclick="window.location.href='{{ auth_url }}'">Sign In</button></p>
+
+        {% if config.get("B2C_RESET_PASSWORD_AUTHORITY") %}
+        <li><a href='{{_build_auth_url(authority=config["B2C_RESET_PASSWORD_AUTHORITY"])}}'>Reset Password</a></li>
+        {% endif %}
+
+        <hr>
+        <footer style="text-align: right">Powered by MSAL Python {{ version }}</footer>
+    </div>
+</body>
+</html>
+
