@@ -20,8 +20,8 @@ from jose import jwt
 
 app = Flask(__name__)
 
-API_AUDIENCE = "https://pythonjtfuncapi.microsoft.onmicrosoft.com"
-TENANT_ID = "72f988bf-86f1-41af-91ab-2d7cd011db47"
+API_AUDIENCE = "https://<appname>.<tenantname>.onmicrosoft.com"
+TENANT_ID = "<AzureAD Tenant ID>"
 
 # Error handler
 class AuthError(Exception):
